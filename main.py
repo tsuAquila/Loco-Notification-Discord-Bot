@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands, tasks
 import os
-from keep_alive import keep_alive
 import asyncio
 from locoAPI import stream
+from config.json import TOKEN
 
 client = commands.Bot(command_prefix='%', intents=discord.Intents.all())
+
+stream("sc0utOP")
 
 @client.event
 async def on_ready():
@@ -20,4 +22,4 @@ async def setup(ctx, channel, streamerID):
     loco(streamerID)
     
 
-client.run('OTI4Mjk5NzgwMzkwNjYyMjI2.YdWwig.TIR9hFL7XvGmYl1JxeogZvpZ0Hk')
+client.run(os.environ("TOKEN"))
